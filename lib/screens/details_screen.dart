@@ -21,6 +21,7 @@ class DetailsScreen extends StatelessWidget {
             onPressed: () {
               _showDeleteConfirmationDialog(context, passage);
             },
+            tooltip: 'Delete Passage',
           ),
         ],
       ),
