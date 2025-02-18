@@ -56,13 +56,16 @@ class NewPassageScreenState extends State<NewPassageScreen> {
               maxLines: 1,
             ),
             const SizedBox(height: 16),
-            TextField(
-              controller: _bodyController,
-              decoration: const InputDecoration(
-                labelText: 'Body',
-                border: OutlineInputBorder(),
+            Expanded(
+              child: TextField(
+                controller: _bodyController,
+                decoration: const InputDecoration(
+                  labelText: 'Body',
+                  border: OutlineInputBorder(),
+                ),
+                maxLines: null,
+                keyboardType: TextInputType.multiline,
               ),
-              maxLines: 20,
             ),
             const SizedBox(height: 24),
             ElevatedButton(onPressed: _savePassage, child: const Text('Save')),
