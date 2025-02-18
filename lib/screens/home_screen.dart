@@ -8,7 +8,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Home')),
+      appBar: AppBar(title: const Text('Memorizer')),
       body: Consumer<PassageProvider>(
         builder: (context, passageProvider, child) {
           return passageProvider.passages.isEmpty
