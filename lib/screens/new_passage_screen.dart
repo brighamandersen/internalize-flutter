@@ -21,7 +21,7 @@ class NewPassageScreenState extends State<NewPassageScreen> {
         _titleController.text,
         'This is the body',
       );
-      Provider.of<PassageProvider>(context, listen: false).addPassage(passage);
+      context.read<PassageProvider>().addPassage(passage);
       Navigator.pop(context); // Close screen
     } else {
       ScaffoldMessenger.of(

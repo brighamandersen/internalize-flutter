@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fly/models/passage_model.dart';
 import 'package:fly/passage_provider.dart';
+import 'package:fly/widgets/confirm_delete_dialog.dart';
 import 'package:provider/provider.dart';
 
 class DetailsScreen extends StatelessWidget {
@@ -18,7 +19,7 @@ class DetailsScreen extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.delete),
             onPressed: () {
-              _deletePassage(context, passage);
+              _showDeleteConfirmationDialog(context, passage);
             },
           ),
         ],
@@ -27,11 +28,22 @@ class DetailsScreen extends StatelessWidget {
     );
   }
 
+  void _showDeleteConfirmationDialog(BuildContext context, Passage passage) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return ConfirmDeleteDialog(
+          passage: passage,
+          onConfirm: () {
+            _deletePassage(context, passage);
+          },
+        );
+      },
+    );
+  }
+
   void _deletePassage(BuildContext context, Passage passage) {
-    Provider.of<PassageProvider>(
-      context,
-      listen: false,
-    ).deletePassage(passage.id);
+    context.read<PassageProvider>().deletePassage(passage.id);
     ScaffoldMessenger.of(
       context,
     ).showSnackBar(const SnackBar(content: Text('Passage deleted')));
