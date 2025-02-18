@@ -23,15 +23,25 @@ class HomeScreen extends StatelessWidget {
           return ListView.builder(
             itemCount: passageProvider.passages.length,
             itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(passageProvider.passages[index].title),
-                onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    '/details',
-                    arguments: passageProvider.passages[index],
-                  );
-                },
+              return Container(
+                decoration: BoxDecoration(
+                  border: Border(
+                    bottom:
+                        index < passageProvider.passages.length - 1
+                            ? BorderSide(color: Colors.grey.shade300, width: 1)
+                            : BorderSide.none,
+                  ),
+                ),
+                child: ListTile(
+                  title: Text(passageProvider.passages[index].title),
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      '/details',
+                      arguments: passageProvider.passages[index],
+                    );
+                  },
+                ),
               );
             },
           );
