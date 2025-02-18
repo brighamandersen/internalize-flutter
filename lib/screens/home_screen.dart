@@ -7,12 +7,11 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final passageProvider = Provider.of<PassageProvider>(context);
-
     return Scaffold(
-      appBar: AppBar(title: Text('Home')),
-      body:
-          passageProvider.passages.isEmpty
+      appBar: AppBar(title: const Text('Home')),
+      body: Consumer<PassageProvider>(
+        builder: (context, passageProvider, child) {
+          return passageProvider.passages.isEmpty
               ? const Center(
                 child: Text(
                   'No passages added yet. Tap + to add one!',
@@ -33,13 +32,15 @@ class HomeScreen extends StatelessWidget {
                     },
                   );
                 },
-              ),
+              );
+        },
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.pushNamed(context, '/new-passage');
         },
         tooltip: "Add New Passage",
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }
