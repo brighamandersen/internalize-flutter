@@ -24,7 +24,10 @@ class DetailsScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Center(child: Text(passage.body)),
+      body: Padding(
+        padding: EdgeInsets.all(16),
+        child: Center(child: Text(passage.body)),
+      ),
     );
   }
 
