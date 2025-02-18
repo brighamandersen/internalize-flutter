@@ -68,7 +68,18 @@ class NewPassageScreenState extends State<NewPassageScreen> {
               ),
             ),
             const SizedBox(height: 24),
-            ElevatedButton(onPressed: _savePassage, child: const Text('Save')),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 16),
+                  child: ElevatedButton(
+                    onPressed: _savePassage,
+                    child: const Text('Save'),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
