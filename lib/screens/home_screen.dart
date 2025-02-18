@@ -11,28 +11,30 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(title: const Text('Memorizer')),
       body: Consumer<PassageProvider>(
         builder: (context, passageProvider, child) {
-          return passageProvider.passages.isEmpty
-              ? const Center(
-                child: Text(
-                  'No passages added yet. Tap + to add one!',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-                ),
-              )
-              : ListView.builder(
-                itemCount: passageProvider.passages.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text(passageProvider.passages[index].title),
-                    onTap: () {
-                      Navigator.pushNamed(
-                        context,
-                        '/details',
-                        arguments: passageProvider.passages[index],
-                      );
-                    },
+          if (passageProvider.passages.isEmpty) {
+            return const Center(
+              child: Text(
+                'No passages added yet. Tap + to add one!',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+              ),
+            );
+          }
+
+          return ListView.builder(
+            itemCount: passageProvider.passages.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                title: Text(passageProvider.passages[index].title),
+                onTap: () {
+                  Navigator.pushNamed(
+                    context,
+                    '/details',
+                    arguments: passageProvider.passages[index],
                   );
                 },
               );
+            },
+          );
         },
       ),
       floatingActionButton: FloatingActionButton(
