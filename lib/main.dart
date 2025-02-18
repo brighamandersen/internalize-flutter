@@ -2,9 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:fly/screens/home_screen.dart';
 import 'package:fly/screens/details_screen.dart';
 import 'package:fly/screens/new_passage_screen.dart';
+import 'package:provider/provider.dart';
+import 'passage_provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  // runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => PassageProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
