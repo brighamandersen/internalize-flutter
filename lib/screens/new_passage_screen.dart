@@ -13,21 +13,30 @@ class NewPassageScreen extends StatefulWidget {
 class NewPassageScreenState extends State<NewPassageScreen> {
   // Create a TextEditingController to manage the input text
   final TextEditingController _titleController = TextEditingController();
+  final TextEditingController _bodyController = TextEditingController();
 
   void _savePassage() {
-    if (_titleController.text.isNotEmpty) {
-      Passage passage = Passage(
-        DateTime.now().toString(), // Generate a unique ID
-        _titleController.text,
-        'This is the body',
-      );
-      context.read<PassageProvider>().addPassage(passage);
-      Navigator.pop(context); // Close screen
-    } else {
+    if (_titleController.text.isEmpty) {
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(const SnackBar(content: Text('Please enter some text!')));
+      ).showSnackBar(const SnackBar(content: Text('Please enter a title')));
+      return;
     }
+
+    if (_bodyController.text.isEmpty) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text('Please enter a body')));
+      return;
+    }
+
+    Passage passage = Passage(
+      DateTime.now().toString(), // Generate a unique ID
+      _titleController.text,
+      _bodyController.text,
+    );
+    context.read<PassageProvider>().addPassage(passage);
+    Navigator.pop(context); // Close screen
   }
 
   @override
@@ -39,14 +48,23 @@ class NewPassageScreenState extends State<NewPassageScreen> {
         child: Column(
           children: [
             TextField(
-              controller:
-                  _titleController, // Attach the controller to the TextField
+              controller: _titleController,
               decoration: const InputDecoration(
-                labelText: 'Enter your passage',
+                labelText: 'Title',
                 border: OutlineInputBorder(),
               ),
-              maxLines: 5, // Set the number of lines the TextField can take
+              maxLines: 1,
             ),
+            const SizedBox(height: 16),
+            TextField(
+              controller: _bodyController,
+              decoration: const InputDecoration(
+                labelText: 'Body',
+                border: OutlineInputBorder(),
+              ),
+              maxLines: 20,
+            ),
+            const SizedBox(height: 24),
             ElevatedButton(onPressed: _savePassage, child: const Text('Save')),
           ],
         ),
