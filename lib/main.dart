@@ -23,9 +23,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Memorizer',
       theme: ThemeData(
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
+        colorScheme: ColorScheme(
+          brightness: Brightness.light,
+          primary: Colors.black,
+          onPrimary: Colors.white,
+          secondary: Colors.grey,
+          onSecondary: Colors.black,
+          surface: Colors.white,
+          onSurface: Colors.black,
+          error: Colors.red,
+          onError: Colors.white,
+        ),
       ),
       home: HomeScreen(),
       routes: {
