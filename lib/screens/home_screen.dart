@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fly/passage_provider.dart';
+import 'package:fly/widgets/no_passages_empty_state.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -16,12 +17,7 @@ class HomeScreen extends StatelessWidget {
           }
 
           if (passageProvider.passages.isEmpty) {
-            return const Center(
-              child: Text(
-                'No passages added yet. Tap + to add one!',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-              ),
-            );
+            return const NoPassagesEmptyState();
           }
 
           return ListView.builder(
