@@ -23,16 +23,35 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Memorizer',
       theme: ThemeData(
+        // useMaterial3: false,
         colorScheme: ColorScheme(
           brightness: Brightness.light,
           primary: Colors.black,
           onPrimary: Colors.white,
-          secondary: Colors.grey,
-          onSecondary: Colors.black,
+          secondary: Colors.black,
+          onSecondary: Colors.white,
           surface: Colors.white,
           onSurface: Colors.black,
           error: Colors.red,
           onError: Colors.white,
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.black, // Black background
+            foregroundColor: Colors.white, // White text
+          ),
+        ),
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+            foregroundColor:
+                Colors.black, // Ensures text buttons are also black
+          ),
+        ),
+        outlinedButtonTheme: OutlinedButtonThemeData(
+          style: OutlinedButton.styleFrom(
+            foregroundColor: Colors.black, // Text/icons
+            side: BorderSide(color: Colors.black), // Black outline
+          ),
         ),
       ),
       home: HomeScreen(),
