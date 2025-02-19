@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:fly/models/passage_model.dart';
+import 'package:provider/provider.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:fly/screens/home_screen.dart';
 import 'package:fly/screens/details_screen.dart';
 import 'package:fly/screens/new_passage_screen.dart';
-import 'package:provider/provider.dart';
-import 'passage_provider.dart';
+import 'package:fly/passage_provider.dart';
 
-void main() {
-  // runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  Hive.registerAdapter(PassageAdapter());
+  await Hive.openBox<Passage>('passages');
   runApp(
     ChangeNotifierProvider(
       create: (context) => PassageProvider(),

@@ -31,9 +31,9 @@ class NewPassageScreenState extends State<NewPassageScreen> {
     }
 
     Passage passage = Passage(
-      DateTime.now().toString(), // Generate a unique ID
-      _titleController.text,
-      _bodyController.text,
+      id: DateTime.now().toString(), // Generate a unique ID
+      title: _titleController.text,
+      body: _bodyController.text,
     );
     context.read<PassageProvider>().addPassage(passage);
     Navigator.pop(context); // Close screen

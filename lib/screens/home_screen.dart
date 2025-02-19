@@ -11,6 +11,10 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(title: const Text('Memorizer')),
       body: Consumer<PassageProvider>(
         builder: (context, passageProvider, child) {
+          if (!passageProvider.isInitialized) {
+            return Center(child: CircularProgressIndicator());
+          }
+
           if (passageProvider.passages.isEmpty) {
             return const Center(
               child: Text(
