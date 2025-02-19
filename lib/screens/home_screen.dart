@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fly/passage_provider.dart';
+import 'package:fly/routes.dart';
 import 'package:fly/widgets/no_passages_empty_state.dart';
 import 'package:provider/provider.dart';
 
@@ -37,7 +38,7 @@ class HomeScreen extends StatelessWidget {
                   onTap: () {
                     Navigator.pushNamed(
                       context,
-                      '/details',
+                      Routes.details,
                       arguments: passageProvider.passages[index],
                     );
                   },
@@ -49,7 +50,7 @@ class HomeScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(context, '/new-passage');
+          Navigator.pushNamed(context, Routes.newPassage);
         },
         tooltip: "Add New Passage",
         child: const Icon(Icons.add),
