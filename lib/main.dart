@@ -22,8 +22,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Memorizer',
+      themeMode: ThemeMode.system,
       theme: ThemeData(
-        // useMaterial3: false,
         colorScheme: ColorScheme(
           brightness: Brightness.light,
           primary: Colors.black,
@@ -37,20 +37,45 @@ class MyApp extends StatelessWidget {
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.black, // Black background
-            foregroundColor: Colors.white, // White text
+            backgroundColor: Colors.black,
+            foregroundColor: Colors.white,
           ),
         ),
         textButtonTheme: TextButtonThemeData(
-          style: TextButton.styleFrom(
-            foregroundColor:
-                Colors.black, // Ensures text buttons are also black
-          ),
+          style: TextButton.styleFrom(foregroundColor: Colors.black),
         ),
         outlinedButtonTheme: OutlinedButtonThemeData(
           style: OutlinedButton.styleFrom(
-            foregroundColor: Colors.black, // Text/icons
-            side: BorderSide(color: Colors.black), // Black outline
+            foregroundColor: Colors.black,
+            side: BorderSide(color: Colors.black),
+          ),
+        ),
+      ),
+      darkTheme: ThemeData(
+        colorScheme: ColorScheme(
+          brightness: Brightness.dark,
+          primary: Colors.white,
+          onPrimary: Colors.black,
+          secondary: Colors.white,
+          onSecondary: Colors.black,
+          surface: Colors.black,
+          onSurface: Colors.white,
+          error: Colors.red,
+          onError: Colors.white,
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.white,
+            foregroundColor: Colors.black,
+          ),
+        ),
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(foregroundColor: Colors.white),
+        ),
+        outlinedButtonTheme: OutlinedButtonThemeData(
+          style: OutlinedButton.styleFrom(
+            foregroundColor: Colors.white,
+            side: BorderSide(color: Colors.white),
           ),
         ),
       ),
