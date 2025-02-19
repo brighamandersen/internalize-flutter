@@ -24,3 +24,11 @@ flutter build apk --release
 ```bash
 flutter install
 ```
+
+## Regenerate Hive Adapters
+
+To regenerate the Hive adapter files after modifying your models, run the following command:
+
+```bash
+dart run build_runner build
+```
