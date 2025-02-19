@@ -44,10 +44,7 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-# android/
-android/.gradle/
 build/
-ios/
 linux/
 macos/
 windows/
