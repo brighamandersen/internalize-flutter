@@ -25,9 +25,11 @@ class DetailsScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Padding(
-        padding: EdgeInsets.all(16),
-        child: Text(passage.body, style: TextStyle(fontSize: 18)),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.only(left: 16, right: 16, bottom: 48),
+          child: Text(passage.body, style: TextStyle(fontSize: 18)),
+        ),
       ),
     );
   }
