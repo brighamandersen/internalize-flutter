@@ -27,7 +27,7 @@ class DetailsScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: EdgeInsets.all(16),
-        child: Center(child: Text(passage.body)),
+        child: Text(passage.body, style: TextStyle(fontSize: 18)),
       ),
     );
   }
