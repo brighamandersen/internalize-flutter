@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fly/models/passage_model.dart';
 import 'package:fly/passage_provider.dart';
+import 'package:fly/utils.dart';
 import 'package:fly/widgets/confirm_delete_dialog.dart';
 import 'package:provider/provider.dart';
 
@@ -27,8 +28,11 @@ class DetailsScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.only(left: 16, right: 16, bottom: 48),
-          child: Text(passage.body, style: TextStyle(fontSize: 18)),
+          padding: EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 48),
+          child: Text(
+            Utils.convertTextToBlanks(passage.body),
+            style: TextStyle(fontSize: 18),
+          ),
         ),
       ),
     );
