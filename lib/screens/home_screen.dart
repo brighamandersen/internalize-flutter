@@ -55,7 +55,7 @@ class HomeScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(context, Routes.newPassage);
+          Navigator.pushNamed(context, Routes.createPassage);
         },
         tooltip: "Add New Passage",
         child: const Icon(Icons.add),

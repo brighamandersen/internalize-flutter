@@ -4,14 +4,14 @@ import 'package:fly/passage_provider.dart';
 import 'package:fly/utils.dart';
 import 'package:provider/provider.dart';
 
-class NewPassageScreen extends StatefulWidget {
-  const NewPassageScreen({super.key});
+class CreatePassageScreen extends StatefulWidget {
+  const CreatePassageScreen({super.key});
 
   @override
-  NewPassageScreenState createState() => NewPassageScreenState();
+  CreatePassageScreenState createState() => CreatePassageScreenState();
 }
 
-class NewPassageScreenState extends State<NewPassageScreen> {
+class CreatePassageScreenState extends State<CreatePassageScreen> {
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _bodyController = TextEditingController();
 
