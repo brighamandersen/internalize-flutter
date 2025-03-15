@@ -55,7 +55,13 @@ class DetailsScreenState extends State<DetailsScreen> {
           Expanded(
             child: SingleChildScrollView(
               padding: const EdgeInsets.all(16),
-              child: Text(textToDisplay, style: const TextStyle(fontSize: 18)),
+              child: SizedBox(
+                width: double.infinity,
+                child: Text(
+                  textToDisplay,
+                  style: const TextStyle(fontSize: 18),
+                ),
+              ),
             ),
           ),
           Padding(
