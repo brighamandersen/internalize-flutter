@@ -18,14 +18,14 @@ ThemeData lightTheme = ThemeData(
       foregroundColor: Colors.white,
     ),
   ),
-  textButtonTheme: TextButtonThemeData(
-    style: TextButton.styleFrom(foregroundColor: Colors.black),
-  ),
   outlinedButtonTheme: OutlinedButtonThemeData(
     style: OutlinedButton.styleFrom(
       foregroundColor: Colors.black,
       side: BorderSide(color: Colors.black),
     ),
+  ),
+  textButtonTheme: TextButtonThemeData(
+    style: TextButton.styleFrom(foregroundColor: Colors.black),
   ),
 );
 
@@ -47,13 +47,13 @@ ThemeData darkTheme = ThemeData(
       foregroundColor: Colors.black,
     ),
   ),
-  textButtonTheme: TextButtonThemeData(
-    style: TextButton.styleFrom(foregroundColor: Colors.white),
-  ),
   outlinedButtonTheme: OutlinedButtonThemeData(
     style: OutlinedButton.styleFrom(
       foregroundColor: Colors.white,
       side: BorderSide(color: Colors.white),
     ),
+  ),
+  textButtonTheme: TextButtonThemeData(
+    style: TextButton.styleFrom(foregroundColor: Colors.white),
   ),
 );
