@@ -10,7 +10,9 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Memorizer')),
+      appBar: AppBar(
+        title: const Text('Memorizer', style: TextStyle(fontSize: 24)),
+      ),
       body: Consumer<PassageProvider>(
         builder: (context, passageProvider, child) {
           if (!passageProvider.isInitialized) {
@@ -34,7 +36,10 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 child: ListTile(
-                  title: Text(passageProvider.passages[index].title),
+                  title: Text(
+                    passageProvider.passages[index].title,
+                    style: const TextStyle(fontSize: 18),
+                  ),
                   onTap: () {
                     Navigator.pushNamed(
                       context,

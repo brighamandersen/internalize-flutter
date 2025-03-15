@@ -15,7 +15,7 @@ class DetailsScreen extends StatefulWidget {
 }
 
 class DetailsScreenState extends State<DetailsScreen> {
-  AmountToShow _amountToShow = AmountToShow.none;
+  AmountToShow _amountToShow = AmountToShow.full;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class DetailsScreenState extends State<DetailsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(passage.title),
+        title: Text(passage.title, style: const TextStyle(fontSize: 24)),
         actions: [
           IconButton(
             icon: const Icon(Icons.delete),
@@ -59,7 +59,10 @@ class DetailsScreenState extends State<DetailsScreen> {
                 width: double.infinity,
                 child: Text(
                   textToDisplay,
-                  style: const TextStyle(fontSize: 18),
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontFamily: 'RobotoMono',
+                  ),
                 ),
               ),
             ),
@@ -73,15 +76,15 @@ class DetailsScreenState extends State<DetailsScreen> {
                 segments: const [
                   ButtonSegment(
                     value: AmountToShow.none,
-                    label: Text('Blanks'),
+                    label: Text('None', style: TextStyle(fontSize: 16)),
                   ),
                   ButtonSegment(
                     value: AmountToShow.firstLetters,
-                    label: Text('First Letters'),
+                    label: Text('Some', style: TextStyle(fontSize: 16)),
                   ),
                   ButtonSegment(
                     value: AmountToShow.full,
-                    label: Text('Full Text'),
+                    label: Text('All', style: TextStyle(fontSize: 16)),
                   ),
                 ],
                 selected: {_amountToShow},

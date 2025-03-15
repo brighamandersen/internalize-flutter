@@ -42,7 +42,9 @@ class NewPassageScreenState extends State<NewPassageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('New Passage')),
+      appBar: AppBar(
+        title: const Text('New Passage', style: TextStyle(fontSize: 24)),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -52,8 +54,11 @@ class NewPassageScreenState extends State<NewPassageScreen> {
               decoration: const InputDecoration(
                 labelText: 'Title',
                 border: OutlineInputBorder(),
+                floatingLabelBehavior: FloatingLabelBehavior.always,
+                floatingLabelStyle: TextStyle(fontSize: 18),
               ),
               maxLines: 1,
+              style: const TextStyle(fontSize: 18),
             ),
             const SizedBox(height: 16),
             Expanded(
@@ -62,11 +67,14 @@ class NewPassageScreenState extends State<NewPassageScreen> {
                 decoration: const InputDecoration(
                   labelText: 'Body',
                   border: OutlineInputBorder(),
+                  floatingLabelBehavior: FloatingLabelBehavior.always,
+                  floatingLabelStyle: TextStyle(fontSize: 18),
                 ),
                 expands: true,
                 maxLines: null,
                 keyboardType: TextInputType.multiline,
                 textAlignVertical: TextAlignVertical.top,
+                style: const TextStyle(fontFamily: 'RobotoMono', fontSize: 18),
               ),
             ),
             const SizedBox(height: 24),
@@ -77,7 +85,7 @@ class NewPassageScreenState extends State<NewPassageScreen> {
                   padding: EdgeInsets.symmetric(vertical: 16),
                   child: ElevatedButton(
                     onPressed: _savePassage,
-                    child: const Text('Save'),
+                    child: const Text('Save', style: TextStyle(fontSize: 16)),
                   ),
                 ),
               ],

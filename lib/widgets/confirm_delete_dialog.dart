@@ -15,7 +15,10 @@ class ConfirmDeleteDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
       title: const Text('Delete Passage'),
-      content: const Text('Are you sure you want to delete this passage?'),
+      content: const Text(
+        'Are you sure you want to delete this passage?',
+        style: TextStyle(fontSize: 16),
+      ),
       actions: [
         // Cancel button
         TextButton(
@@ -30,7 +33,10 @@ class ConfirmDeleteDialog extends StatelessWidget {
             onConfirm();
             Navigator.of(context).pop();
           },
-          child: const Text('Delete'),
+          child: const Text(
+            'Delete',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
         ),
       ],
     );

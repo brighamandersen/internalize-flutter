@@ -32,3 +32,7 @@ To regenerate the Hive adapter files after modifying your models, run the follow
 ```bash
 dart run build_runner build
 ```
+
+# Font Sizes
+
+General font sizes that we're following are 24px for header text, 18px for main text, then 16px for miscellaneous text like on segmented buttons and save buttons.
