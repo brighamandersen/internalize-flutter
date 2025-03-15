@@ -48,7 +48,6 @@ class NewPassageScreenState extends State<NewPassageScreen> {
         child: Column(
           children: [
             TextField(
-              autofocus: true,
               controller: _titleController,
               decoration: const InputDecoration(
                 labelText: 'Title',
