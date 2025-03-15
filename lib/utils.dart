@@ -1,6 +1,6 @@
 class Utils {
   static String generateUniqueId() {
-    return DateTime.now().toString();
+    return DateTime.now().millisecondsSinceEpoch.toString();
   }
 
   static String convertTextToBlanks(String text) {
