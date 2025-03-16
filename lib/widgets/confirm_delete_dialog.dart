@@ -20,14 +20,12 @@ class ConfirmDeleteDialog extends StatelessWidget {
         style: TextStyle(fontSize: 16),
       ),
       actions: [
-        // Cancel button
         TextButton(
           onPressed: () {
             Navigator.of(context).pop();
           },
           child: const Text('Cancel'),
         ),
-        // Confirm button
         TextButton(
           onPressed: () {
             onConfirm();

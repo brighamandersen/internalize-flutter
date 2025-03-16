@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fly/enums.dart';
 import 'package:fly/models/passage_model.dart';
 import 'package:fly/passage_provider.dart';
 import 'package:fly/routes.dart';
@@ -6,8 +7,6 @@ import 'package:fly/utils.dart';
 import 'package:fly/widgets/confirm_delete_dialog.dart';
 import 'package:fly/widgets/passage_not_found.dart';
 import 'package:provider/provider.dart';
-
-enum AmountToShow { none, firstLetters, full }
 
 class DetailsScreen extends StatefulWidget {
   const DetailsScreen({super.key});
@@ -83,7 +82,7 @@ class DetailsScreenState extends State<DetailsScreen> {
                   child: SizedBox(
                     width: double.infinity,
                     child: Text(
-                      _getMaskedBodyText(passage.body, _amountToShow),
+                      Utils.applyMaskToBody(passage.body, _amountToShow),
                       style: const TextStyle(
                         fontSize: 18,
                         fontFamily: 'RobotoMono',
@@ -129,24 +128,8 @@ class DetailsScreenState extends State<DetailsScreen> {
   }
 }
 
-String _getMaskedBodyText(String body, AmountToShow amountToShow) {
-  switch (amountToShow) {
-    case AmountToShow.none:
-      return Utils.convertTextToBlanks(body);
-    case AmountToShow.firstLetters:
-      return Utils.convertTextToBlanksBesidesFirstLetters(body);
-    case AmountToShow.full:
-      return body;
-  }
-}
-
 void _onEditIconPress(BuildContext context, Passage passage) {
-  Navigator.pushNamed(
-    // Navigator.pushReplacementNamed(
-    context,
-    Routes.editPassage,
-    arguments: passage,
-  );
+  Navigator.pushNamed(context, Routes.editPassage, arguments: passage);
 }
 
 void _onDeleteIconPress(BuildContext context, Passage passage) {
@@ -168,5 +151,5 @@ void _onConfirmDeletePress(BuildContext context, Passage passage) {
   ScaffoldMessenger.of(
     context,
   ).showSnackBar(const SnackBar(content: Text('Passage deleted')));
-  Navigator.pop(context); // Close screen
+  Navigator.pop(context);
 }

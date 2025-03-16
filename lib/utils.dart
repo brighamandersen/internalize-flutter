@@ -1,3 +1,5 @@
+import 'package:fly/enums.dart';
+
 class Utils {
   static String generateUniqueId() {
     return DateTime.now().millisecondsSinceEpoch.toString();
@@ -15,5 +17,16 @@ class Utils {
       }
       return match.group(1)! + match.group(2)!.replaceAll(RegExp(r'\w'), '_');
     });
+  }
+
+  static String applyMaskToBody(String body, AmountToShow amountToShow) {
+    switch (amountToShow) {
+      case AmountToShow.none:
+        return Utils.convertTextToBlanks(body);
+      case AmountToShow.firstLetters:
+        return Utils.convertTextToBlanksBesidesFirstLetters(body);
+      case AmountToShow.full:
+        return body;
+    }
   }
 }
