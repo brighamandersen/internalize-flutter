@@ -46,23 +46,21 @@ class DetailsScreenState extends State<DetailsScreen> {
             itemBuilder: (BuildContext context) {
               return [
                 PopupMenuItem(
-                  value: 'Edit',
                   child: Row(
                     children: const [
                       Icon(Icons.edit),
                       SizedBox(width: 8),
-                      Text('Edit'),
+                      Text('Edit', style: TextStyle(fontSize: 16)),
                     ],
                   ),
                   onTap: () => _onEditIconPress(context, passage),
                 ),
                 PopupMenuItem(
-                  value: 'Delete',
                   child: Row(
                     children: const [
                       Icon(Icons.delete),
                       SizedBox(width: 8),
-                      Text('Delete'),
+                      Text('Delete', style: TextStyle(fontSize: 16)),
                     ],
                   ),
                   onTap: () => _onDeleteIconPress(context, passage),
