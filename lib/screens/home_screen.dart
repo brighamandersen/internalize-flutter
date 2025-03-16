@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fly/passage_provider.dart';
 import 'package:fly/routes.dart';
 import 'package:fly/widgets/no_passages_empty_state.dart';
+import 'package:fly/widgets/passage_list_item.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -26,28 +27,10 @@ class HomeScreen extends StatelessWidget {
           return ListView.builder(
             itemCount: passageProvider.passages.length,
             itemBuilder: (context, index) {
-              return Container(
-                decoration: BoxDecoration(
-                  border: Border(
-                    bottom:
-                        index < passageProvider.passages.length - 1
-                            ? BorderSide(color: Colors.grey.shade300, width: 1)
-                            : BorderSide.none,
-                  ),
-                ),
-                child: ListTile(
-                  title: Text(
-                    passageProvider.passages[index].title,
-                    style: const TextStyle(fontSize: 18),
-                  ),
-                  onTap: () {
-                    Navigator.pushNamed(
-                      context,
-                      Routes.details,
-                      arguments: passageProvider.passages[index].id,
-                    );
-                  },
-                ),
+              final passage = passageProvider.passages[index];
+              return PassageListItem(
+                passage: passage,
+                isLastItem: index == passageProvider.passages.length - 1,
               );
             },
           );
