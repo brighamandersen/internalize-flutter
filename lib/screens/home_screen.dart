@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
       body: Consumer<PassageProvider>(
         builder: (context, passageProvider, child) {
           if (!passageProvider.isInitialized) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           }
 
           if (passageProvider.passages.isEmpty) {
@@ -44,7 +44,7 @@ class HomeScreen extends StatelessWidget {
                     Navigator.pushNamed(
                       context,
                       Routes.details,
-                      arguments: passageProvider.passages[index],
+                      arguments: passageProvider.passages[index].id,
                     );
                   },
                 ),

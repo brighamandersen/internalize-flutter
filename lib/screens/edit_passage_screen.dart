@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fly/models/passage_model.dart';
 import 'package:fly/passage_provider.dart';
-import 'package:fly/routes.dart';
 import 'package:provider/provider.dart';
 
 class EditPassageScreen extends StatefulWidget {
@@ -48,7 +47,7 @@ class EditPassageScreenState extends State<EditPassageScreen> {
       body: _bodyController.text,
     );
     context.read<PassageProvider>().updatePassage(passage);
-    Navigator.pushReplacementNamed(context, Routes.details, arguments: passage);
+    Navigator.pop(context);
   }
 
   @override

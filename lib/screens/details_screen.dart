@@ -4,6 +4,7 @@ import 'package:fly/passage_provider.dart';
 import 'package:fly/routes.dart';
 import 'package:fly/utils.dart';
 import 'package:fly/widgets/confirm_delete_dialog.dart';
+import 'package:fly/widgets/passage_not_found.dart';
 import 'package:provider/provider.dart';
 
 enum AmountToShow { none, firstLetters, full }
@@ -20,135 +21,147 @@ class DetailsScreenState extends State<DetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final Passage passage =
-        ModalRoute.of(context)?.settings.arguments as Passage;
+    final String passageId =
+        ModalRoute.of(context)?.settings.arguments as String;
 
-    String textToDisplay = '';
-    switch (_amountToShow) {
-      case AmountToShow.none:
-        textToDisplay = Utils.convertTextToBlanks(passage.body);
-        break;
-      case AmountToShow.firstLetters:
-        textToDisplay = Utils.convertTextToBlanksBesidesFirstLetters(
-          passage.body,
+    return Consumer<PassageProvider>(
+      builder: (context, passageProvider, child) {
+        final Passage passage = passageProvider.passages.firstWhere(
+          (p) => p.id == passageId,
+          orElse: () => Passage(id: '', title: 'Not Found', body: 'Not Found'),
         );
-        break;
-      case AmountToShow.full:
-        textToDisplay = passage.body;
-        break;
-    }
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(passage.title, style: const TextStyle(fontSize: 24)),
-        actions: [
-          PopupMenuButton(
-            itemBuilder: (BuildContext context) {
-              return [
-                PopupMenuItem(
-                  child: Row(
-                    children: const [
-                      Icon(Icons.edit),
-                      SizedBox(width: 8),
-                      Text('Edit', style: TextStyle(fontSize: 16)),
-                    ],
-                  ),
-                  onTap: () => _onEditIconPress(context, passage),
-                ),
-                PopupMenuItem(
-                  child: Row(
-                    children: const [
-                      Icon(Icons.delete),
-                      SizedBox(width: 8),
-                      Text('Delete', style: TextStyle(fontSize: 16)),
-                    ],
-                  ),
-                  onTap: () => _onDeleteIconPress(context, passage),
-                ),
-              ];
-            },
-            icon: const Icon(Icons.more_vert),
-          ),
-        ],
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.all(16),
-              child: SizedBox(
-                width: double.infinity,
-                child: Text(
-                  textToDisplay,
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontFamily: 'RobotoMono',
-                  ),
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: SizedBox(
-              width: double.infinity,
-              child: SegmentedButton<AmountToShow>(
-                showSelectedIcon: false,
-                segments: const [
-                  ButtonSegment(
-                    value: AmountToShow.none,
-                    label: Text('None', style: TextStyle(fontSize: 16)),
-                  ),
-                  ButtonSegment(
-                    value: AmountToShow.firstLetters,
-                    label: Text('Some', style: TextStyle(fontSize: 16)),
-                  ),
-                  ButtonSegment(
-                    value: AmountToShow.full,
-                    label: Text('All', style: TextStyle(fontSize: 16)),
-                  ),
-                ],
-                selected: {_amountToShow},
-                onSelectionChanged: (newSelection) {
-                  setState(() {
-                    _amountToShow = newSelection.first;
-                  });
+        if (passage.id.isEmpty ||
+            passage.title.isEmpty ||
+            passage.body.isEmpty) {
+          return const PassageNotFound();
+        }
+
+        return Scaffold(
+          appBar: AppBar(
+            title: Text(passage.title, style: const TextStyle(fontSize: 24)),
+            actions: [
+              PopupMenuButton(
+                itemBuilder: (BuildContext context) {
+                  return [
+                    PopupMenuItem(
+                      child: Row(
+                        children: const [
+                          Icon(Icons.edit),
+                          SizedBox(width: 8),
+                          Text('Edit', style: TextStyle(fontSize: 16)),
+                        ],
+                      ),
+                      onTap: () => _onEditIconPress(context, passage),
+                    ),
+                    PopupMenuItem(
+                      child: Row(
+                        children: const [
+                          Icon(Icons.delete),
+                          SizedBox(width: 8),
+                          Text('Delete', style: TextStyle(fontSize: 16)),
+                        ],
+                      ),
+                      onTap: () => _onDeleteIconPress(context, passage),
+                    ),
+                  ];
                 },
+                icon: const Icon(Icons.more_vert),
               ),
-            ),
+            ],
           ),
-        ],
-      ),
-    );
-  }
-
-  void _onEditIconPress(BuildContext context, Passage passage) {
-    Navigator.pushReplacementNamed(
-      context,
-      Routes.editPassage,
-      arguments: passage,
-    );
-  }
-
-  void _onDeleteIconPress(BuildContext context, Passage passage) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return ConfirmDeleteDialog(
-          passage: passage,
-          onConfirm: () {
-            _onConfirmDeletePress(context, passage);
-          },
+          body: Column(
+            children: [
+              Expanded(
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.all(16),
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: Text(
+                      _getMaskedBodyText(passage.body, _amountToShow),
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontFamily: 'RobotoMono',
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(16),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: SegmentedButton<AmountToShow>(
+                    showSelectedIcon: false,
+                    segments: const [
+                      ButtonSegment(
+                        value: AmountToShow.none,
+                        label: Text('None', style: TextStyle(fontSize: 16)),
+                      ),
+                      ButtonSegment(
+                        value: AmountToShow.firstLetters,
+                        label: Text('Some', style: TextStyle(fontSize: 16)),
+                      ),
+                      ButtonSegment(
+                        value: AmountToShow.full,
+                        label: Text('All', style: TextStyle(fontSize: 16)),
+                      ),
+                    ],
+                    selected: {_amountToShow},
+                    onSelectionChanged: (newSelection) {
+                      setState(() {
+                        _amountToShow = newSelection.first;
+                      });
+                    },
+                  ),
+                ),
+              ),
+            ],
+          ),
         );
       },
     );
   }
+}
 
-  void _onConfirmDeletePress(BuildContext context, Passage passage) {
-    context.read<PassageProvider>().deletePassage(passage.id);
-    ScaffoldMessenger.of(
-      context,
-    ).showSnackBar(const SnackBar(content: Text('Passage deleted')));
-    Navigator.pop(context); // Close screen
+String _getMaskedBodyText(String body, AmountToShow amountToShow) {
+  switch (amountToShow) {
+    case AmountToShow.none:
+      return Utils.convertTextToBlanks(body);
+    case AmountToShow.firstLetters:
+      return Utils.convertTextToBlanksBesidesFirstLetters(body);
+    case AmountToShow.full:
+      return body;
   }
+}
+
+void _onEditIconPress(BuildContext context, Passage passage) {
+  Navigator.pushNamed(
+    // Navigator.pushReplacementNamed(
+    context,
+    Routes.editPassage,
+    arguments: passage,
+  );
+}
+
+void _onDeleteIconPress(BuildContext context, Passage passage) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return ConfirmDeleteDialog(
+        passage: passage,
+        onConfirm: () {
+          _onConfirmDeletePress(context, passage);
+        },
+      );
+    },
+  );
+}
+
+void _onConfirmDeletePress(BuildContext context, Passage passage) {
+  context.read<PassageProvider>().deletePassage(passage.id);
+  ScaffoldMessenger.of(
+    context,
+  ).showSnackBar(const SnackBar(content: Text('Passage deleted')));
+  Navigator.pop(context); // Close screen
 }
