@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fly/models/passage_model.dart';
 import 'package:fly/passage_provider.dart';
+import 'package:fly/routes.dart';
 import 'package:fly/utils.dart';
 import 'package:fly/widgets/confirm_delete_dialog.dart';
 import 'package:provider/provider.dart';
@@ -42,9 +43,16 @@ class DetailsScreenState extends State<DetailsScreen> {
         title: Text(passage.title, style: const TextStyle(fontSize: 24)),
         actions: [
           IconButton(
+            icon: const Icon(Icons.edit),
+            onPressed: () {
+              _onEditIconPress(context, passage);
+            },
+            tooltip: 'Edit Passage',
+          ),
+          IconButton(
             icon: const Icon(Icons.delete),
             onPressed: () {
-              _showDeleteConfirmationDialog(context, passage);
+              _onDeleteIconPress(context, passage);
             },
             tooltip: 'Delete Passage',
           ),
@@ -101,21 +109,29 @@ class DetailsScreenState extends State<DetailsScreen> {
     );
   }
 
-  void _showDeleteConfirmationDialog(BuildContext context, Passage passage) {
+  void _onEditIconPress(BuildContext context, Passage passage) {
+    Navigator.pushReplacementNamed(
+      context,
+      Routes.editPassage,
+      arguments: passage,
+    );
+  }
+
+  void _onDeleteIconPress(BuildContext context, Passage passage) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return ConfirmDeleteDialog(
           passage: passage,
           onConfirm: () {
-            _deletePassage(context, passage);
+            _onConfirmDeletePress(context, passage);
           },
         );
       },
     );
   }
 
-  void _deletePassage(BuildContext context, Passage passage) {
+  void _onConfirmDeletePress(BuildContext context, Passage passage) {
     context.read<PassageProvider>().deletePassage(passage.id);
     ScaffoldMessenger.of(
       context,

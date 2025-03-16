@@ -24,6 +24,13 @@ class PassageProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  void updatePassage(Passage passage) {
+    if (_passageBox.containsKey(passage.id)) {
+      _passageBox.put(passage.id, passage);
+      notifyListeners();
+    }
+  }
+
   void deletePassage(String passageId) {
     _passageBox.delete(passageId);
     notifyListeners();
