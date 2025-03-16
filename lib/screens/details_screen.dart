@@ -42,19 +42,34 @@ class DetailsScreenState extends State<DetailsScreen> {
       appBar: AppBar(
         title: Text(passage.title, style: const TextStyle(fontSize: 24)),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.edit),
-            onPressed: () {
-              _onEditIconPress(context, passage);
+          PopupMenuButton(
+            itemBuilder: (BuildContext context) {
+              return [
+                PopupMenuItem(
+                  value: 'Edit',
+                  child: Row(
+                    children: const [
+                      Icon(Icons.edit),
+                      SizedBox(width: 8),
+                      Text('Edit'),
+                    ],
+                  ),
+                  onTap: () => _onEditIconPress(context, passage),
+                ),
+                PopupMenuItem(
+                  value: 'Delete',
+                  child: Row(
+                    children: const [
+                      Icon(Icons.delete),
+                      SizedBox(width: 8),
+                      Text('Delete'),
+                    ],
+                  ),
+                  onTap: () => _onDeleteIconPress(context, passage),
+                ),
+              ];
             },
-            tooltip: 'Edit Passage',
-          ),
-          IconButton(
-            icon: const Icon(Icons.delete),
-            onPressed: () {
-              _onDeleteIconPress(context, passage);
-            },
-            tooltip: 'Delete Passage',
+            icon: const Icon(Icons.more_vert),
           ),
         ],
       ),
