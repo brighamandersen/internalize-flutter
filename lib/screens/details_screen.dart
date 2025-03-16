@@ -41,32 +41,37 @@ class DetailsScreenState extends State<DetailsScreen> {
           appBar: AppBar(
             title: Text(passage.title, style: const TextStyle(fontSize: 24)),
             actions: [
-              PopupMenuButton(
-                itemBuilder: (BuildContext context) {
-                  return [
-                    PopupMenuItem(
-                      child: Row(
-                        children: const [
-                          Icon(Icons.edit),
-                          SizedBox(width: 8),
-                          Text('Edit', style: TextStyle(fontSize: 16)),
-                        ],
-                      ),
-                      onTap: () => _onEditIconPress(context, passage),
-                    ),
-                    PopupMenuItem(
-                      child: Row(
-                        children: const [
-                          Icon(Icons.delete),
-                          SizedBox(width: 8),
-                          Text('Delete', style: TextStyle(fontSize: 16)),
-                        ],
-                      ),
-                      onTap: () => _onDeleteIconPress(context, passage),
-                    ),
-                  ];
+              PopupMenuButton<String>(
+                onSelected: (value) {
+                  if (value == 'edit') {
+                    _onEditIconPress(context, passage);
+                  } else if (value == 'delete') {
+                    _onDeleteIconPress(context, passage);
+                  }
                 },
-                icon: const Icon(Icons.more_vert),
+                itemBuilder:
+                    (BuildContext context) => [
+                      PopupMenuItem(
+                        value: 'edit',
+                        child: Row(
+                          children: const [
+                            Icon(Icons.edit),
+                            SizedBox(width: 8),
+                            Text('Edit', style: TextStyle(fontSize: 16)),
+                          ],
+                        ),
+                      ),
+                      PopupMenuItem(
+                        value: 'delete',
+                        child: Row(
+                          children: const [
+                            Icon(Icons.delete),
+                            SizedBox(width: 8),
+                            Text('Delete', style: TextStyle(fontSize: 16)),
+                          ],
+                        ),
+                      ),
+                    ],
               ),
             ],
           ),
