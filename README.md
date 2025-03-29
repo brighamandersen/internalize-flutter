@@ -1,4 +1,4 @@
-# fly
+# memorizer
 
 ![App icon](./non_code_icons/master-icon.png)
 
