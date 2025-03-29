@@ -1,6 +1,8 @@
 # fly
 
-A new Flutter project.
+![App icon](./playstore.png)
+
+An app to help you memorize passages using fill in the blanks!
 
 ## Getting Started
 
