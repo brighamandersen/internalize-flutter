@@ -1,6 +1,6 @@
 # fly
 
-![App icon](./non_code_icons/playstore.png)
+![App icon](./non_code_icons/master-icon.png)
 
 An app to help you memorize passages using fill in the blanks!
 
