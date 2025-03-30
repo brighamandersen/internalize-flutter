@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:fly/passage_provider.dart';
-import 'package:fly/routes.dart';
-import 'package:fly/widgets/no_passages_empty_state.dart';
-import 'package:fly/widgets/passage_list_item.dart';
+import 'package:internalize/constants.dart';
+import 'package:internalize/passage_provider.dart';
+import 'package:internalize/routes.dart';
+import 'package:internalize/widgets/no_passages_empty_state.dart';
+import 'package:internalize/widgets/passage_list_item.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -12,7 +13,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Memorizer', style: TextStyle(fontSize: 24)),
+        title: const Text(appDisplayName, style: TextStyle(fontSize: 24)),
       ),
       body: Consumer<PassageProvider>(
         builder: (context, passageProvider, child) {

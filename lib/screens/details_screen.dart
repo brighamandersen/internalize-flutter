@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:fly/enums.dart';
-import 'package:fly/models/passage_model.dart';
-import 'package:fly/passage_provider.dart';
-import 'package:fly/routes.dart';
-import 'package:fly/utils.dart';
-import 'package:fly/widgets/confirm_delete_dialog.dart';
-import 'package:fly/widgets/passage_not_found.dart';
+import 'package:internalize/enums.dart';
+import 'package:internalize/models/passage_model.dart';
+import 'package:internalize/passage_provider.dart';
+import 'package:internalize/routes.dart';
+import 'package:internalize/utils.dart';
+import 'package:internalize/widgets/confirm_delete_dialog.dart';
+import 'package:internalize/widgets/passage_not_found.dart';
 import 'package:provider/provider.dart';
 
 class DetailsScreen extends StatefulWidget {

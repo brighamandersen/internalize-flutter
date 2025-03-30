@@ -1,4 +1,4 @@
-package com.example.fly
+package com.brighamandersen.internalize
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fly/models/passage_model.dart';
-import 'package:fly/passage_provider.dart';
-import 'package:fly/utils.dart';
+import 'package:internalize/models/passage_model.dart';
+import 'package:internalize/passage_provider.dart';
+import 'package:internalize/utils.dart';
 import 'package:provider/provider.dart';
 
 class CreatePassageScreen extends StatefulWidget {

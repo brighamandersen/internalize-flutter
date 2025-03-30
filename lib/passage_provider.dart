@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fly/models/passage_model.dart';
+import 'package:internalize/models/passage_model.dart';
 import 'package:hive/hive.dart';
 
 class PassageProvider with ChangeNotifier {

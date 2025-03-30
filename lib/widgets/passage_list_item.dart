@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fly/models/passage_model.dart';
-import 'package:fly/routes.dart';
+import 'package:internalize/models/passage_model.dart';
+import 'package:internalize/routes.dart';
 
 class PassageListItem extends StatelessWidget {
   final Passage passage;

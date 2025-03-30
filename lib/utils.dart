@@ -1,4 +1,4 @@
-import 'package:fly/enums.dart';
+import 'package:internalize/enums.dart';
 
 class Utils {
   static String generateUniqueId() {

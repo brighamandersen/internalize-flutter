@@ -1,4 +1,4 @@
-# internalize
+# Internalize
 
 ![App icon](./non_code_icons/master-icon.png)
 
