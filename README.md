@@ -2,7 +2,7 @@
 
 ![App icon](./non_code_icons/master-icon.png)
 
-An app to help you memorize passages using fill in the blanks!
+A flutter app to help you memorize passages using fill in the blanks!
 
 This was my first app using Flutter! I've used React Native a lot but wanted to try out Flutter to compare!
 
