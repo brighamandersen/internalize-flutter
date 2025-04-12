@@ -88,16 +88,13 @@ class EditPassageScreenState extends State<EditPassageScreen> {
                 style: const TextStyle(fontFamily: 'RobotoMono', fontSize: 18),
               ),
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 16),
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 16),
-                  child: ElevatedButton(
-                    onPressed: _savePassageEdits,
-                    child: const Text('Save', style: TextStyle(fontSize: 16)),
-                  ),
+                ElevatedButton(
+                  onPressed: _savePassageEdits,
+                  child: const Text('Save', style: TextStyle(fontSize: 16)),
                 ),
               ],
             ),
