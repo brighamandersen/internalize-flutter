@@ -1,4 +1,4 @@
-package com.brighamandersen.internalize
+package com.brighamandersen.internalizeflutter
 
 import io.flutter.embedding.android.FlutterActivity
 
