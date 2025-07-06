@@ -1,6 +1,6 @@
 # Internalize
 
-![App icon](./non_code_icons/master-icon.png)
+![App banner](./non_code_icons/internalize-canva-banner.jpg)
 
 A flutter app to help you memorize passages using fill in the blanks!
 
