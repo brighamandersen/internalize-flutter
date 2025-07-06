@@ -1,4 +1,4 @@
-# Internalize
+# Internalize Flutter (Deprecated)
 
 ![App banner](./non_code_icons/internalize-canva-banner.jpg)
 
