@@ -2,7 +2,7 @@
 
 ![App banner](./non_code_icons/internalize-canva-banner.jpg)
 
-A flutter app to help you memorize passages using fill in the blanks!
+Flutter app to help you memorize passages using fill in the blanks!
 
 This was my first app using Flutter! I've used React Native a lot but wanted to try out Flutter to compare! While this was fun, I ended up deciding that I'd rather focus my efforts on learning native android rather than learning another cross platform solution. So once I got a super simple MVP created for this, I stopped working on this project to work on the [native version](https://github.com/brighamandersen/internalize).
 
