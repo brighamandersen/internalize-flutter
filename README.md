@@ -1,10 +1,23 @@
 # Internalize Flutter (Deprecated)
 
-![App banner](./non_code_icons/internalize-canva-banner.jpg)
+![App banner](./README-assets/internalize-canva-banner.jpg)
 
 Flutter app to help you memorize passages using fill in the blanks!
 
 This was my first app using Flutter! I've used React Native a lot but wanted to try out Flutter to compare! While this was fun, I ended up deciding that I'd rather focus my efforts on learning native android rather than learning another cross platform solution. So once I got a super simple MVP created for this, **I stopped working on this project to work on the [native version](https://github.com/brighamandersen/internalize)**. Also worth noting, I also built a [web app](https://github.com/brighamandersen/internalize-web) for Internalize, but that's just a simplified version. See the native Jetpack Compose version for best support and features.
+
+## Screenshots
+
+![Home Screen Screenshot](./README-assets/home-screen-screenshot.jpg)
+
+![Blanks Screenshot](./README-assets/blanks-screenshot.jpg)
+
+![First Letters Screenshot](./README-assets/first-letters-screenshot.jpg)
+
+![Full Text Screenshot](./README-assets/full-text-screenshot.jpg)
+
+![Edit Passage Screenshot](./README-assets/edit-passage-screenshot.jpg)
+
 
 ## Feature set
 
