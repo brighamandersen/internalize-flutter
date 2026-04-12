@@ -4,9 +4,14 @@
 
 Flutter app to help you memorize passages using fill in the blanks!
 
-## Background
+## Internalize Projects
 
-This was my first app using Flutter! I've used React Native a lot but wanted to try out Flutter to compare! While this was fun, I ended up deciding that I'd rather focus my efforts on learning native android rather than learning another cross platform solution. So once I got a super simple MVP created for this, **I stopped working on this project to work on the [native version](https://github.com/brighamandersen/internalize)**. Also worth noting, I also built a [web app](https://github.com/brighamandersen/internalize-web) for Internalize, but that's just a simplified version. See the native Jetpack Compose version for best support and features.
+- [Internalize Flutter **(This Project)**](https://github.com/brighamandersen/internalize-flutter)
+  - The original MVP project written in Flutter. Got sidelined once I realized I only needed Android support and wanted better performance with Jetpack Compose.
+- [Internalize Jetpack Compose](https://github.com/brighamandersen/internalize-web)
+  - Also known as just "Internalize", this is the official version of Internalize. It was built after the Flutter app and is faster and leaner (90% smaller APK file).
+- [Internalize Web](https://github.com/brighamandersen/internalize-web)
+  - A web app made after Internalize Flutter and Internalize Jetpack Compose. More of a proof of concept for progressive web apps. This project was a simplified version focused on memorizing one passage at a time.
 
 ## Screenshots
 
