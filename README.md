@@ -8,15 +8,16 @@ This was my first app using Flutter! I've used React Native a lot but wanted to 
 
 ## Screenshots
 
-![Home Screen Screenshot](./README-assets/home-screen-screenshot.jpg)
+<p align="middle">
+  <img src="./README-assets/home-screen-screenshot.jpg" alt="Home screen screenshot" width="30%" />
+  <img src="./README-assets/blanks-screenshot.jpg" alt="Blanks mode screenshot" width="30%" />
+  <img src="./README-assets/first-letters-screenshot.jpg" alt="First letters mode screenshot" width="30%" />
+</p>
 
-![Blanks Screenshot](./README-assets/blanks-screenshot.jpg)
-
-![First Letters Screenshot](./README-assets/first-letters-screenshot.jpg)
-
-![Full Text Screenshot](./README-assets/full-text-screenshot.jpg)
-
-![Edit Passage Screenshot](./README-assets/edit-passage-screenshot.jpg)
+<p align="middle">
+  <img src="./README-assets/full-text-screenshot.jpg" alt="Full text mode screenshot" width="30%" />
+  <img src="./README-assets/edit-passage-screenshot.jpg" alt="Edit passage screen screenshot" width="30%" />
+</p>
 
 
 ## Feature set
